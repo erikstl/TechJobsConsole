@@ -38,6 +38,30 @@ namespace TechJobsConsole
             return values;
         }
 
+        public static List<Dictionary<string, string>> FindByValue(string keyword, string column)
+        {
+            // load data, if not already loaded
+            LoadData();
+
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> job in AllJobs)
+            {
+                foreach (string item in job.Keys)
+                {
+                    if (item == column)
+                    {
+                        if ((job[item]).ToLower().Contains(keyword.ToLower()))
+                        {
+                            jobs.Add(job);
+                        }
+                    }
+                }
+            }
+
+            return jobs;
+        }    
+
         public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
         {
             // load data, if not already loaded
