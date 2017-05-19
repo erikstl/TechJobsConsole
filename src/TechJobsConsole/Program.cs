@@ -61,11 +61,11 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        //Console.WriteLine("Search all fields not yet implemented.");
+                        PrintJobs(JobData.FindByValue(searchTerm));
                     }
                     else
                     {
-                        PrintJobs(JobData.FindByValue(searchTerm, columnChoice));
+                        PrintJobs(JobData.FindByColumnAndValue(columnChoice, searchTerm));
                     }
                 }
             }

@@ -38,7 +38,7 @@ namespace TechJobsConsole
             return values;
         }
 
-        public static List<Dictionary<string, string>> FindByValue(string keyword, string column)
+        public static List<Dictionary<string, string>> FindByValue(string keyword)
         {
             // load data, if not already loaded
             LoadData();
@@ -49,13 +49,13 @@ namespace TechJobsConsole
             {
                 foreach (string item in job.Keys)
                 {
-                    if (item == column)
+                    
+                    if ((job[item]).ToLower().Contains(keyword.ToLower()))
                     {
-                        if ((job[item]).ToLower().Contains(keyword.ToLower()))
-                        {
-                            jobs.Add(job);
-                        }
+                        jobs.Add(job);
+                        break;
                     }
+                    
                 }
             }
 
